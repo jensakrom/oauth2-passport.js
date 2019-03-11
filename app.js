@@ -4,11 +4,22 @@ const authRoutes = require('./routes/auth-routes');
 const passportSetup = require('./config/passport-setup');
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 
 // Setup up view engine
 app.set('view engine', 'ejs');
 
+// set cookies
+app.set(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+}))
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 // connect mongodb
 mongoose.connect(keys.mongodb.DbURI, {useNewUrlParser: true}, (err) => {
     if(!err){

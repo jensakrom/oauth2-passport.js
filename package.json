@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/jensakrom/oauth-passport#readme",
   "dependencies": {
+    "cookie-session": "^1.3.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.17",
