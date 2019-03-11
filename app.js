@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const SESSION_TIME = 24 * 60 * 60 * 1000;
 
 
 // Setup up view engine
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs');
 
 // set cookies
 app.set(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: SESSION_TIME,
     keys: [keys.session.cookieKey]
 }))
 
