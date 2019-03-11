@@ -18,6 +18,7 @@ passport.use(
         // option for the google starategy
         clientID: keys.google.clientId,
         clientSecret: keys.google.clientSecret,
+        callbackURL:'/auth/google/redirect'
 }, (accessToken, refreshToken, profile, done) => {
     // Check if id is exist
     User.findOne({googleId: profile.id}).then((currentUser) => {
