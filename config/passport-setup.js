@@ -20,6 +20,7 @@ passport.use(
         clientSecret: keys.google.clientSecret,
         callbackURL:'/auth/google/redirect'
 }, (accessToken, refreshToken, profile, done) => {
+    console.log(profile);
     // Check if id is exist
     User.findOne({googleId: profile.id}).then((currentUser) => {
         if(currentUser){
@@ -28,7 +29,8 @@ passport.use(
         }else{
             new User({
                 username: profile.displayName,
-                googleId: profile.id
+                googleId: profile.id,
+                thumbnail:profile._json.image.url
             }).save().then((newUser) => {
                 console.log('new User created ' + newUser )
                 done(null, newUser)
