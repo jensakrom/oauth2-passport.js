@@ -2,15 +2,15 @@
 this is about oauth2 with passport.js
 
 Install to try Oauth
-1. clone this repository
-2. install this repository
+1. Clone this repository
+2. Install this repository
    - type npm install
-3. this repository not include module keys. In this keys consist of
+3. This repository not include module keys. In this keys consist of
    - google secret id
    - mongodb uri
    - session key
-   
-   you must create keys.js in folder config and then type this script
+4. Create Google+ id and secret in google developer
+5. You must create keys.js in folder config and then type this script
    
    module.exports = {
     google:{
